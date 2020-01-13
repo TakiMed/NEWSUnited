@@ -42,7 +42,7 @@ header, footer{background-color: var(--blue);}
         "footer";
 }
 
-/*Grid areas*/
+/*Grid areas Home page*/
 header{grid-area:header;}
 .sliding{grid-area:slider; margin-bottom: 3%;}
 .topRated{grid-area:topRated;}
@@ -81,7 +81,7 @@ nav{
     width: 100%;
 }
 
-.sub-menu{display: none}
+.sub-menu{display: none;}
 .nav{display: none;}
 
 header button{
@@ -154,13 +154,13 @@ ul.nav li:hover a{color:white;}
 /*every of 3 sliders put at those dimensions despite first and last childs are not sliders*/
 [class*="slider"]{
     display: grid;
-    grid-template-rows: auto 300px auto;
+    grid-template-rows: min-content 300px min-content;
     transition: all 0.5s ease;
 }
 
 /*Slider change scaling*/
 [class*="slider"]:hover{
-    grid-template-rows: auto 320px auto;
+    grid-template-rows: auto 350px auto;
 }
 
 /*change layout slider PHONE*/
@@ -168,6 +168,7 @@ ul.nav li:hover a{color:white;}
     display: grid;
     grid-template-columns: 1fr;
     gap: 15px;
+    align-items: center;
 }
 
 /*black square under arrows on tablet and desktop visible*/
@@ -184,7 +185,7 @@ ul.nav li:hover a{color:white;}
 .sliding .image{
     padding:5%;
     background-blend-mode: overlay;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.3);
     transition: all 0.5s ease;
     margin-bottom: 5%; 
 }
@@ -292,7 +293,7 @@ aside [class*="numbering"]{
 }
 
 /*hides underline from numbers from first child link over image hover*/
-.best article a:first-child:hover{text-decoration: none;}
+.best article a:hover{text-decoration: none;}
 
 
 /*TOP RATED SECTION // MOBILE*/
@@ -300,6 +301,10 @@ aside [class*="numbering"]{
     display: flex; 
     flex-direction: column;
     margin-bottom: 5%;
+
+        max-width:90%;
+        justify-self: center;
+    
 }
 
 .topRated .row{
@@ -312,6 +317,8 @@ aside [class*="numbering"]{
 
 .row > article{
     grid-template-columns: minmax(min-content,100%);
+    max-width:80%;
+    justify-self: center;
 }
 
 .row a{display: block;}
@@ -347,7 +354,7 @@ aside [class*="numbering"]{
     background-color: black;
     width: 200px;
     align-self: center;
-    margin-top: 80px;
+    margin-top: 50px;
 }
 
 .loadMore a{color: white;}
@@ -359,6 +366,7 @@ aside [class*="numbering"]{
     color: white;
     font-family: inherit;
     padding: 1em;
+    cursor:pointer;
 }
 
 
@@ -592,6 +600,7 @@ button i {border: solid white;border-width: 0 3px 3px 0;}
 
 .slider2{display: grid;}
 
+
 /*same hight on images*/
 [class*="slider"] .image{
     flex:1;
@@ -625,6 +634,7 @@ aside{margin-top: 0;}
     grid-template-rows: 1fr 1fr;
     justify-content: center;
     grid-template-columns: minmax(min-content,100%);
+    max-width:100%;
 }
 
 /*selects first div of parent article and its direct span child*/
@@ -698,7 +708,7 @@ footer .containerwidth{
         padding: 0;
     }
 
-    article{margin-right: 5%;}
+    article{margin-right: 0;}
     .featured article:last-child{margin-right: 0;}
     
 }
@@ -743,7 +753,7 @@ aside article{margin-bottom: 20%;}
 }
 
 .row > article{
-    grid-template-columns: minmax(min-content,90%);
+    grid-template-columns: minmax(min-content,100%);
 }
 
 
@@ -754,6 +764,7 @@ ul > li:hover > ul{
     position: absolute;
     top: 100%;
     background-color: var(--blue);
+    box-shadow: 3px 8px 9px 0px rgba(0,0,0,0.21);
     display: flex;
     flex-direction: column;
     padding:0;

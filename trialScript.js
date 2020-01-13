@@ -134,7 +134,7 @@ function addArticles(){
 const featured=document.getElementsByClassName("featured")[0];
 function showBest(){
     newsArrSortedByViews=newsArr.sort(function(a,b){
-    return a.views>=b.views;
+    return a.views<b.views;
     });
     for (var i=0;i<3;i++){
         var n=i+1;
@@ -149,7 +149,7 @@ function showBest(){
 
 var loadMoreButton=document.getElementsByClassName("loadMore")[0];
 loadMoreButton.addEventListener("click",loadMoreFun);
-function loadMoreFun(){
+function loadMoreFun(e){
     for (k=j;k<j+3;k++){
         const articleWrapper=document.createElement("article");
         articleWrapper.innerHTML+="<div class=\"img\">"+
@@ -168,12 +168,23 @@ function loadMoreFun(){
         }
     }
     j=j+3;
+    var loadPosition=e.pageY
+    window.scrollTo({
+        top: loadPosition-120,
+        behavoir:"smooth"
+    });
 }
 
 featured.addEventListener("click",showModalWindow);
+imgDiv=document.getElementsByClassName("img");
+for (var z = 0; z < imgDiv.length;z++){
+    imgDiv[z].addEventListener("click",showModalWindow);
+    }
+
+row.addEventListener("click",showModalWindow);
 function showModalWindow(e){
     bestNewsDiv=document.getElementsByClassName("bestNews")[0];
-    if (event.target.parentNode.tagName=="ARTICLE"){
+    if (event.target.parentNode.tagName=="ARTICLE" && event.target.classList.contains("image")){
         current=e.target;
         currentName=e.target.parentNode.children[1].innerText;
         bestNum=current.parentNode.children[0].children[0].innerText;
@@ -182,6 +193,10 @@ function showModalWindow(e){
         }
     else if (event.target.classList.contains("readMore")){
         currentName=e.target.parentNode.children[1].childNodes[0].innerText;
+        bestNewsDiv.style.display="none";
+    }
+    else if (event.target.parentNode.tagName=="ARTICLE" && event.target.classList.contains("img")){
+        currentName=e.target.children[1].innerText;
         bestNewsDiv.style.display="none";
     }
     for (el of newsArr){
@@ -207,7 +222,7 @@ function showModalWindow(e){
     var webSiteUrl = myel.url.slice(start,end);
     holderDiv.children[5].children[1].setAttribute("href",myel.url);
     holderDiv.children[5].children[1].innerHTML=webSiteUrl;
-
+    currentposition=event.pageY;
     modalWindowWrapper.style.display="flex";
     document.body.style.height="100vh";
     document.body.style.overflowY="hidden";
@@ -226,8 +241,12 @@ function hideModalWindow (e){
     document.body.style.height="auto";
     document.body.style.overflowY="auto";
     document.body.style.position="relative";
-    showBest();
-
+    window.scrollTo({
+        top:currentposition-300,
+        behavoir:"smooth"
+    });
 }
+
+
 //ExtensionScriptApis.addEventListener("click",removeModalindow);
 

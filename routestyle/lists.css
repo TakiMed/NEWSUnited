@@ -1,0 +1,631 @@
+/*GRID SYSTM LISTS*/
+.wrapper{
+    grid-template-areas: 
+        "header"
+        "search"
+        "filters"
+        "main"
+        "pagination"
+        "footer";
+}
+
+input, select{
+    font-family: 'Montserrat', sans-serif;
+}
+
+/*Grid areas Lists page*/
+.search{grid-area:search;}
+.filters{grid-area:filters;}
+.main{grid-area:main;}
+.pagination{grid-area:pagination;}
+
+.filters{grid-area:filters;}
+.filterButtons{grid-area:filterButtons}
+
+/*Mobile Styles*/
+/*Search section // MOBILE*/
+.wrapper .search {
+    padding:1em 0 4em 0;
+    background-image: linear-gradient(var(--blue) 70%,rgba(0,0,0,0.2));
+}
+
+.search{
+    display:grid;
+    background-color:var(--blue);
+    grid-template-rows: minmax(auto,150px) auto;
+    padding:20%;
+}
+
+.typeBar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.typeBar h1{
+    color:white;
+}
+
+.paperSvg {
+    order: -1;
+}
+
+.track{
+    width: 90%;
+    display:grid;
+    grid-template-columns:50px 1fr;
+    grid-template-rows: 50px;
+    box-shadow: 10px 9px 9px 0px rgba(0,0,0,0.21);
+}
+
+.track > button{
+    background-color: var(--yellow);
+    padding: 1.1em;
+    border:none;
+}
+
+.track > input {
+    border:none;
+    width: 100%;
+    padding:0 1.2em;
+    color:rgb(114, 114, 114);
+  }
+
+  ::placeholder {
+    color: rgb(119, 117, 117);
+  }
+
+
+/*Filters // PHONE*/
+.filtersHolder{
+    margin-top:2em;
+    display: grid;
+
+    grid-template-areas: 
+        "filters"
+        "filterButtons";
+}
+
+
+.wrapper .filtersHolder{
+    padding:4% 0;
+}
+
+.filtersHolder > div{
+    padding:6% 4%;
+}
+
+.filters {
+    background-color:#EBEBEB;
+    margin-bottom:1em;
+    display: flex;
+    flex-direction: column;
+}
+
+.filters label {
+    color: #4E4E4E;
+    font-weight: bold;
+}
+
+.filterButtons{
+    background-color: white;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.filterButtons > div {
+    flex:1;
+    height: 35px;
+    max-width: 150px;
+}
+
+.findNew, .clearFilters{
+    border:none;
+    width: 100%;
+    height: 100%;
+}
+
+.findNew{
+    background-color: var(--blue);
+    color:white;
+}
+
+.clearFilters{
+    background-color: white;
+    border:1px solid rgb(80, 79, 79);
+    color:rgb(104, 103, 103);
+}
+
+.filters > div:not(:last-child){
+    margin-bottom:2em;
+}
+
+.category select{
+    width: 100%;
+    height:40px;
+    border: 1px solid rgb(104, 103, 103);
+}
+
+.radioButtons{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.filters{
+    font-size: 0.85em;
+  }
+
+.scroller input{
+    width:100%;
+}
+
+select, input[type="range"]{
+    margin-top: 0.5em;
+}
+
+
+/*Main // PHONE*/
+.main {
+    max-width: 1200px;
+    justify-self: center;
+}
+
+/*Css for hover effects*/
+.founded h1{
+    color:#4E4E4E;
+    /*background-color: green;*/
+}
+
+.main p{
+    color:var(--grayText);
+}
+
+.main span{
+    color:#A7A2A2;
+}
+
+[class*="block"]:hover p,
+[class*="block"]:hover span{
+    color:white;
+}
+
+/*see more and date section*/
+.see {
+    width: 100%;
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    padding-left: 2em;
+    justify-content: space-between;
+}
+
+.eye{
+    background-color: var(--blue);
+    width: 50px;
+    height: 50px;
+    padding:0.5em;
+}
+
+[class*="see"] button{
+    border:0;
+    height:100%;
+    padding:0;
+    cursor:pointer;
+}
+
+/*title and description*/
+.information{
+    padding:2em 2em 0 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow:auto;
+    scrollbar-width: none;
+}
+
+.information::-webkit-scrollbar { 
+    display: none; 
+}
+
+.information h3{
+    margin:0;
+}
+
+/*ALL BLOCKS SETTING*/
+.displayMatch{
+    display:grid;
+    justify-content: center;
+    width: 100%;
+    grid-template-columns: minmax(min-content, 550px);
+    grid-template-rows: repeat(4,500px);
+    margin-top: 5em;
+    gap:30px;
+}
+
+/*apply this grid system to all of 4 blocks and than just change positions*/
+.displayMatch > [class*="block"]{
+    display:grid;
+    transition: all 1s ease;
+    grid-template-columns: 0.3fr 0.9fr 0.4fr;
+}
+
+.block1, .block2{
+    grid-template-rows: 0.4fr 1fr 0.5fr;
+}
+
+.block3, .block4{
+    grid-template-rows: 0.5fr 1fr 0.4fr;
+}
+
+/*same dimensions for view button and date*/
+.displayMatch > [class*="block"] > .blockContent{
+    background-color: white;
+    grid-template-rows: 1fr auto;
+    display:grid;
+    overflow:hidden;
+    grid-column:1/4;
+    grid-row:1/3;
+    box-shadow: 0px 0px 12px -5px rgba(0,0,0,0.75);
+}
+
+.displayMatch > [class*="block"] > [class*="blockImage"]{
+    background-color: var(--blue); 
+    background-size:  cover;
+    background-repeat: no-repeat;
+    grid-column:1/4;
+    grid-row:2/4;
+}
+
+.displayMatch .block1 > .blockImage1{
+    background-image: url(../img/top2.jpg);
+}
+
+.displayMatch  .block2 > .blockImage2{
+    background-image: url(../img/top1.jpg);
+}
+
+.displayMatch  .block3 > .blockImage3{
+    background-image: url(../img/top3.jpg);
+}
+
+.displayMatch  .block4 > .blockImage4{
+    background-image: url(../img/best2.jpg);
+}
+
+/*Hovering effects*/
+.displayMatch > [class*="block"]:hover{
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    padding:4em 0;
+}
+
+.displayMatch > [class*="block"]:hover .blockContent{
+    grid-column:1;
+    grid-row:1;
+}
+
+
+/*content hovering*/
+[class*="block"]:hover .blockContent{
+    color:white;
+    background-color: var(--blue);
+    font-size: 1em;
+}
+
+[class*="block"]:hover .eye{
+    background-color: white;
+}
+
+[class*="block"]:hover .eye svg{
+    fill:var(--blue);
+}
+
+
+/*PAGINATION MOBILE*/
+.pagination > div {
+    display: grid;
+    grid-template-columns: 50px 1fr 50px;
+    grid-template-rows: 50px;
+    gap: 10px;
+}
+
+.pages {
+    display: flex;
+    width: 100%;
+}
+
+.arrleft, .arright{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+[class*="arr"] button{
+    height: 100%;
+    width: 100%;
+    border:none;
+    padding:0;
+    cursor: pointer;
+}
+
+button i{
+    border:solid #4e4e4e;
+    border-width: 0 3px 3px 0;
+}
+
+[class*="arr"] button:hover{
+    background-color: var(--yellow);
+}
+
+[class*="arr"] button:hover i{
+    border:solid white;
+    border-width: 0 3px 3px 0;
+}
+
+.pages > div {
+    width: 50px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pages > div:not(.dots):hover{
+    background-color: var(--yellow);
+    font-weight: bold;
+    color:white;
+    cursor: pointer;
+}
+
+.wrapper .pagination{
+    padding:0;
+}
+
+.pagination {
+    margin-top:3em;
+    width: minmax(min-content, max-content);    
+    justify-content: center;
+    justify-self: center;
+}
+
+.pagination > div > div{
+    background-color: #EBEBEB;
+}
+
+  
+
+  
+
+
+
+/* Tablet Styles */
+@media only screen and (min-width: 550px) {
+/*Search section // TABLET*/
+.track{
+    max-width: 500px;
+}
+
+.wrapper .search {
+    padding:1em 0 4em 0;
+}
+
+.search{
+    grid-template-rows: minmax(auto,250px) auto;
+}
+
+
+/*Filters // TABLET*/
+.filtersHolder {    
+    grid-template-areas: 
+        "filters filterButtons";
+    grid-template-columns: 1fr minmax(min-content,20%);
+    align-items: center;
+}
+
+.filterButtons {
+    flex-direction: column;
+    height: auto;
+    align-content: center;
+    justify-content: center;
+    align-items:center;
+}
+
+.wrapper .filtersHolder {
+    align-content: center;
+}
+
+.filtersHolder > div {
+    margin: 0;
+}
+
+.filterButtons > div{
+    width:100%;
+}
+
+.filterButtons div:not(:last-child){
+    margin-bottom: 1em;
+}
+
+.filterButtons > div button {
+    height: 40px;
+}
+
+.filters > div {
+    width: 100%;
+    max-width: 450px;
+}
+
+.filters {
+    align-items: center;
+}
+   
+.category, .scroller {
+    display: flex;
+    align-items: center;
+}
+
+
+.filtersHolder label{
+    margin-right:1em;
+}
+
+
+/*Main // TABLET*/
+/*effect on main hover*/
+[class*="block"]:hover .blockContent h3{
+    font-size: 1.5em;
+ }
+ 
+ .displayMatch > [class*="block"]:hover{
+     padding:4em;
+ }
+
+/*BLOCK 1*/
+.displayMatch .block1 > .blockContent{
+    grid-column:1/3;
+    grid-row:1/3;
+    box-shadow: -5px 8px 9px 0px rgba(0,0,0,0.21);
+}
+
+.displayMatch .block1 > .blockImage1{
+    grid-column:2/4;
+    grid-row:2/4;
+}
+
+/*BLOCK 2*/
+.displayMatch  .block2 > .blockContent{
+    grid-column:2/4;
+    grid-row:1/3;
+    box-shadow: 5px 8px 9px 0px rgba(0,0,0,0.21);
+}
+
+.displayMatch  .block2 > .blockImage2{
+    grid-column:1/3;
+    grid-row:2/4;
+}
+
+/*BLOCK 3*/
+.displayMatch  .block3 > .blockContent{
+    grid-column:1/3;
+    grid-row:2/4;
+    box-shadow: -5px 8px 9px 0px rgba(0,0,0,0.21);
+}
+
+.displayMatch  .block3 > .blockImage3{
+    grid-column:2/4;
+    grid-row:1/3;
+}
+
+/*BLOCK 4*/
+.displayMatch  .block4 > .blockContent{
+    grid-column:2/4;
+    grid-row:2/4;
+    box-shadow: 5px 8px 9px 0px rgba(0,0,0,0.21);
+}
+
+.displayMatch  .block4 > .blockImage4{
+    grid-column:1/3;
+    grid-row:1/3;
+}
+
+
+
+
+
+}
+
+
+
+/* Desktop Styles */
+@media only screen and (min-width: 961px) {
+/*Search section // DESKTOP*/
+.wrapper{
+    grid-template-columns: 1fr;
+}
+
+.wrapper .search{
+    grid-template-columns: 1.5fr 1fr;
+    padding:3em 5em 3em 5em;
+}
+
+.search{
+    grid-template-rows: minmax(auto,300px) auto;
+}
+
+.typeBar{
+    justify-content: center;
+}
+
+.paperSvg {
+    order: 2;
+}
+
+.paperSvg svg{
+    width:auto;
+}
+
+
+/*Filters // DESKTOP*/
+
+.filters {
+    flex-direction: row;
+    align-items: center;
+}
+
+.filters > div:not(:last-child) {
+    margin:0;
+    margin-right: 2em;
+}
+
+.category{
+    flex:2;
+}
+
+.radioButtons{
+    flex:1;
+}
+
+.scroller{
+    flex:1;
+}
+
+
+/*Main // DESKTOP*/
+.displayMatch {
+    grid-template-columns: 1fr 1fr;
+}
+
+.founded > h1:nth-child(1) {
+    font-size: 2.5em;
+    margin-top:0;
+}
+
+.displayMatch{
+    grid-template-rows: repeat(2, 500px);
+}
+
+/*desktop main layout for eye position track*/
+.displayMatch .block3 .blockContent,
+.displayMatch .block4 .blockContent{
+    grid-template-rows: auto 1fr;
+}
+
+.block3 .information, 
+.block4 .information{
+    order:2;
+}
+
+/*rearanging position of eye icon*/
+.block4 .see, 
+.block2 .see {
+    padding-left: 0;
+    padding-right: 2em;
+}
+
+.block4 .see span, 
+.block2 .see span {
+order: 1;
+}
+
+
+}
